@@ -1,28 +1,29 @@
 package ru.practicum.dinner;
 
+import javax.xml.transform.SourceLocator;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
     static DinnerConstructor dc;
     static Scanner scanner;
-    static DinnerConstructor dinnerConstructor;
+    static DishList dishList;
 
     public static void main(String[] args) {
         dc = new DinnerConstructor();
         scanner = new Scanner(System.in);
-        dinnerConstructor = new DinnerConstructor();
+        dishList = new DishList();
 
         while (true) {
             printMenu();
             String command = scanner.nextLine();
 
             switch (command) {
-                case "1" -> addNewDish();
-                case "2" -> generateDishCombo();
-                case "3" -> {
-                    break;
-                }
+                case "1" : { addNewDish(); }
+                case "2" : { generateDishCombo(); }
+                case "3": { return; }
             }
         }
     }
@@ -41,7 +42,7 @@ public class Main {
         String dishName = scanner.nextLine();
 
         // добавьте новое блюдо
-
+        dishList.addDishInList(dishType, dishName);
     }
 
     private static void generateDishCombo() {
@@ -57,6 +58,7 @@ public class Main {
         //реализуйте ввод типов блюд
         while (!nextItem.isEmpty()) {
 
+            if (dishList.checkType(nextItem)) {}
         }
 
         // сгенерируйте комбинации блюд и выведите на экран
