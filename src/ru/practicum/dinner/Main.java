@@ -6,24 +6,23 @@ public class Main {
 
     static DinnerConstructor dc;
     static Scanner scanner;
+    static DinnerConstructor dinnerConstructor;
 
     public static void main(String[] args) {
         dc = new DinnerConstructor();
         scanner = new Scanner(System.in);
+        dinnerConstructor = new DinnerConstructor();
 
         while (true) {
             printMenu();
             String command = scanner.nextLine();
 
             switch (command) {
-                case "1":
-                    addNewDish();
+                case "1" -> addNewDish();
+                case "2" -> generateDishCombo();
+                case "3" -> {
                     break;
-                case "2":
-                    generateDishCombo();
-                    break;
-                case "3":
-                    return;
+                }
             }
         }
     }
@@ -42,6 +41,7 @@ public class Main {
         String dishName = scanner.nextLine();
 
         // добавьте новое блюдо
+
     }
 
     private static void generateDishCombo() {
