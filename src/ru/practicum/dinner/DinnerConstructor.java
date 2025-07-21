@@ -5,8 +5,32 @@ import java.util.ArrayList;
 
 public class DinnerConstructor {
 
-    Arr
+    ArrayList<String> itemsList;
+    ArrayList<String> dishesComboList;
 
+    Random random;
+    DishList dishList;
+
+    public DinnerConstructor() {
+        itemsList = new ArrayList<>();
+
+        random = new Random();
+        dishList = new DishList();
+    }
+
+
+    void comboGenerating(int numberOfCombos){
+        for (int i = 1; i <= numberOfCombos; i++) {
+            dishesComboList = new ArrayList<>();
+            for (String item : itemsList) {
+                ArrayList<String> dish = dishList.dishByType.get(item);
+                dishesComboList.add(dish.get(random.nextInt(dish.size())));
+            }
+            System.out.println("Комбо " + i);
+            System.out.println(dishesComboList);
+            dishesComboList.clear();
+        }
+    }
 
 
 

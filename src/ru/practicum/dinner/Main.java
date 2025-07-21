@@ -1,8 +1,5 @@
 package ru.practicum.dinner;
 
-import javax.xml.transform.SourceLocator;
-
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -57,11 +54,15 @@ public class Main {
 
         //реализуйте ввод типов блюд
         while (!nextItem.isEmpty()) {
-
-            if (dishList.checkType(nextItem)) {}
+            if (dishList.checkType(nextItem)) {
+                dc.itemsList.add(nextItem);
+                nextItem = scanner.nextLine();
+            } else {
+                System.out.println("Данного типа нет в списке.");
+            }
         }
 
         // сгенерируйте комбинации блюд и выведите на экран
-
+        dc.comboGenerating(numberOfCombos);
     }
 }
