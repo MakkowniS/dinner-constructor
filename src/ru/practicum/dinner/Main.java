@@ -60,14 +60,18 @@ public class Main {
 
         //реализуйте ввод типов блюд
         while (!nextItem.isEmpty()) {
-            if (dishList.checkType(nextItem)) {
+            if (dishList.checkType(nextItem)) { // Проверка на наличие типа в хеш-таблице
                 dc.itemsList.add(nextItem);
                 nextItem = scanner.nextLine();
             } else {
                 System.out.println("Данного типа нет в списке.");
+                nextItem = scanner.nextLine();
             }
         }
-
+        if (dc.itemsList.isEmpty()) { // Если не ввели ничего
+            System.out.println("Вы не ввели ни одного типа, обед сконструирован не будет.");
+            return;
+        }
         // сгенерируйте комбинации блюд и выведите на экран
         dc.comboGenerating(numberOfCombos);
     }

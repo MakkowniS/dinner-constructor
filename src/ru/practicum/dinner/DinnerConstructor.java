@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 public class DinnerConstructor {
 
-    ArrayList<String> itemsList;
-    ArrayList<String> dishesComboList;
+    ArrayList<String> itemsList; // Список введённых типов
+    ArrayList<String> dishesComboList; // Список для комбинаций
 
     Random random;
     DishList dishList;
@@ -28,8 +28,8 @@ public class DinnerConstructor {
             }
             System.out.println("Комбо " + i);
             System.out.println(dishesComboList);
-            dishesComboList.clear();
         }
+        itemsList.clear();
     }
 
 
