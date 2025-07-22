@@ -18,15 +18,17 @@ public class Main {
             String command = scanner.nextLine();
 
             switch (command) {
-                case "1" : {
+                case "1": {
                     addNewDish();
                     break;
                 }
-                case "2" : {
+                case "2": {
                     generateDishCombo();
                     break;
                 }
-                case "3": { return; }
+                case "3": {
+                    return;
+                }
             }
         }
     }
@@ -60,7 +62,7 @@ public class Main {
 
         //реализуйте ввод типов блюд
         while (!nextItem.isEmpty()) {
-            if (dishList.checkType(nextItem)) { // Проверка на наличие типа в хеш-таблице
+            if (dishList.checkType(nextItem)) { // Проверка на наличие типа в таблице
                 dc.itemsList.add(nextItem);
                 nextItem = scanner.nextLine();
             } else {
