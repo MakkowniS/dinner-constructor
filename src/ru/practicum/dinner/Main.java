@@ -4,29 +4,23 @@ import java.util.Scanner;
 
 public class Main {
 
-    static DinnerConstructor dc;
     static Scanner scanner;
-    static DishList dishList;
+    static DishList dl;
+    static DinnerConstructor dc;
 
     public static void main(String[] args) {
-        dc = new DinnerConstructor();
+        dl = new DishList();
+        dc = new DinnerConstructor(dl);
         scanner = new Scanner(System.in);
-        dishList = new DishList();
 
         while (true) {
             printMenu();
             String command = scanner.nextLine();
 
             switch (command) {
-                case "1": {
-                    addNewDish();
-                    break;
-                }
-                case "2": {
-                    generateDishCombo();
-                    break;
-                }
-                case "3": {
+                case "1" -> addNewDish();
+                case "2" -> generateDishCombo();
+                case "3" -> {
                     return;
                 }
             }
@@ -47,7 +41,7 @@ public class Main {
         String dishName = scanner.nextLine();
 
         // добавьте новое блюдо
-        dishList.addDishInList(dishType, dishName);
+        dl.addDishInList(dishType, dishName);
     }
 
     private static void generateDishCombo() {
@@ -62,12 +56,12 @@ public class Main {
 
         //реализуйте ввод типов блюд
         while (!nextItem.isEmpty()) {
-            if (dishList.checkType(nextItem)) { // Проверка на наличие типа в таблице
+            if (dl.checkType(nextItem)) { // Проверка на наличие типа в таблице
                 dc.itemsList.add(nextItem);
                 nextItem = scanner.nextLine();
             } else {
                 System.out.println("Данного типа нет в списке.");
-                nextItem = scanner.nextLine();
+                return;
             }
         }
         if (dc.itemsList.isEmpty()) { // Если не ввели ничего
