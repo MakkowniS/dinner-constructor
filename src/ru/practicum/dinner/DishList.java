@@ -19,10 +19,10 @@ public class DishList {
     
     void addDishInList(String dishType, String dishName) {
         if (checkType(dishType)) { // Если тип уже есть в хэш-таблице
-            ArrayList<String> dish = dishByType.get(dishType); // Получает список блюд, введённого типа
+            dish = dishByType.get(dishType); // Получает список блюд, введённого типа
 
         } else { // Если типа ещё нет
-            ArrayList<String> dish = new ArrayList<>(); // Создаём новый список блюд
+            dish = new ArrayList<>(); // Создаём новый список блюд
         }
         dish.add(dishName); // Добавляем к списку новое
         dishByType.put(dishType, dish); // Кладём обратно в таблицу
